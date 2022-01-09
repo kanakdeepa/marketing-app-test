@@ -1,3 +1,4 @@
 {
-  "baseUrl": "https://app-qa.phrasee.co/"
+  "baseUrl": "https://app-qa.phrasee.co/",
+  "testFiles": ["login_page_spec.js", "dashboard_spec.js"]
 }

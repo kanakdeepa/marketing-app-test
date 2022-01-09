@@ -1,0 +1,17 @@
+{
+  "fields": {
+    "email": "[data-cy='login-email']",
+    "password": "[data-cy='login-password']"
+  },
+  "users": {
+    "invalid": {
+      "invalidEmail": "invalid_email",
+      "email": "invalid@example.com",
+      "password": "invalid"
+    },
+    "valid": {
+      "email": "kanak.deepa91@gmail.com",
+      "password": "Kanak123#"
+    }
+  }
+}
