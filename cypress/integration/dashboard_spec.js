@@ -3,15 +3,20 @@ describe('Dashboard - Create new campaign', () => {
     cy.visit('/');
     cy.fixture('login').then((loginFixtures) => {
       const {
-        fields,
+        locators,
         users: {
           valid: { email, password },
         },
       } = loginFixtures;
 
-      cy.get(fields.email).type(email);
-      cy.get(fields.password).type(password);
+      cy.get(locators.email).type(email);
+      cy.get(locators.password).type(password);
       cy.get('form').contains('Login').click();
     });
+  });
+
+  it('Create new campaign', () => {
+    cy.get('[data-cy="create-campaign-mi"]').click();
+    cy.get('[data-cy="email"]').click();
   });
 });

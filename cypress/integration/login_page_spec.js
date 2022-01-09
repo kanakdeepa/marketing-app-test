@@ -3,33 +3,20 @@ describe('Perform login action - Negative', () => {
     cy.visit('/');
   });
 
-  it('Validation check', () => {
+  it('Invalid login details and validation check', () => {
     cy.fixture('login').then((loginFixtures) => {
       const {
-        fields,
-        users: {
-          invalid: { invalidEmail },
-        },
+        locators,
+        users: { invalid },
       } = loginFixtures;
 
-      cy.get(fields.email).type(invalidEmail);
+      cy.get(locators.email).type(invalid.invalidEmail);
       cy.get('form').contains('Login').click();
       cy.get('form').contains('Please enter a valid email address');
       cy.get('form').contains('Please enter a valid password');
-    });
-  });
 
-  it('Enter invalid login details', () => {
-    cy.fixture('login').then((loginFixtures) => {
-      const {
-        fields,
-        users: {
-          invalid: { email, password },
-        },
-      } = loginFixtures;
-
-      cy.get(fields.email).clear().type(email);
-      cy.get(fields.password).type(password);
+      cy.get(locators.email).clear().type(invalid.email);
+      cy.get(locators.password).type(invalid.password);
       cy.get('form').contains('Login').click();
     });
   });
@@ -43,14 +30,14 @@ describe('Perform login action - Positive', () => {
   it('Enter valid login details', () => {
     cy.fixture('login').then((loginFixtures) => {
       const {
-        fields,
+        locators,
         users: {
           valid: { email, password },
         },
       } = loginFixtures;
 
-      cy.get(fields.email).type(email);
-      cy.get(fields.password).type(password);
+      cy.get(locators.email).type(email);
+      cy.get(locators.password).type(password);
       cy.get('form').contains('Login').click();
     });
   });

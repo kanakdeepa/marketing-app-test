@@ -1,5 +1,5 @@
 {
-  "fields": {
+  "locators": {
     "email": "[data-cy='login-email']",
     "password": "[data-cy='login-password']"
   },
